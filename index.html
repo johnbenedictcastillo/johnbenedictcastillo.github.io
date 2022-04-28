@@ -10,6 +10,7 @@
       window.onload = () => {                       navigator.geolocation.getCurrentPosition((position) => {
         document.querySelector('a-text').setAttribute('gps-entity-place', `latitude: ${position.coords.latitude}; longitude: ${position.coords.longitude};`)
         document.querySelector('a-entity').setAttribute('gps-entity-place', `latitude: ${position.coords.latitude}; longitude: ${position.coords.longitude};`)
+        document.querySelector('a-box').setAttribute('gps-entity-place', `latitude: ${position.coords.latitude}; longitude: ${position.coords.longitude};`)
       });
      }
     </script>
@@ -22,6 +23,7 @@
       embedded
       arjs="sourceType: webcam; debugUIEnabled: false;"
     >
+      <a-box material="color: yellow"/>
       <a-text
         value="John Benedict Castillo"
         look-at="[gps-camera]"
