@@ -49,14 +49,14 @@
   <body style="margin: 0; overflow: hidden;">
     <a-scene>
        <a-assets>
-        <a-asset-item id="dragon" src="./dragon.glb"></a-asset-item>
+        <a-asset-item id="dragon" response-type="arraybuffer" src="./dragon.glb"></a-asset-item>
         <audio id="roar" src="./assets/roar.wav"></audio>
       </a-assets>
       <a-entity event-listener
         gltf-model="#dragon"
         scale=".09 .09 .09"
         position = "0 0 -5"
-        rotation="0 15 0"
+        rotation="0 0 0"
       >
       </a-entity>
       <a-sound src="#roar" autoplay="false"></a-sound>
