@@ -4,6 +4,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>User Interaction Demo</title>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script>
+    window.onload = function() {
+        AFRAME.registerComponent('event-listener', {
+            init: function () {
+                this.audio = document.querySelector("#roar");
+                this.el.addEventListener('dblclick', function () {
+                  console.log("double click")
+                    this.audio.play();
+                }.bind(this));
+                this.el.addEventListener('click', function () {
+                    //this.audio.play();
+                  console.log("click")
+                }.bind(this));
+
+		marker.addEventListener('markerLost', function() {
+			this.vid.pause();
+			this.vid.currentTime = 0;
+		}.bind(this));
+            }
+        });
+    };
+</script>
   </head>
 
   <body style="margin: 0; overflow: hidden;">
@@ -12,14 +34,10 @@
         <a-asset-item id="trex" src="./trex.gltf"></a-asset-item>
         <audio id="roar" src="./assets/roar.wav"></audio>
       </a-assets>
-      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" shadow
-        animation="startEvents: click; property: position;
-          from: -1 1.5 -3; to: -1 0.5 -3 dur: 1000">
-      </a-box>
-      <a-entity
+      <a-entity event-listener
         gltf-model="#trex"
-        scale=".5 .5 .5"
-        position = "0 0 -2"
+        scale=".05 .05 .05"
+        position = "0 0 -5"
         rotation="0 0 0"
       >
       </a-entity>
