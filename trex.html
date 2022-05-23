@@ -13,8 +13,10 @@
                   console.log("double click")
                     this.audio.play();
                 }.bind(this));
-                this.el.addEventListener('click', function () {
+                this.el.addEventListener('click', function (e) {
                     this.audio.play();
+			
+                  console.log(e)
                   console.log("click")
                 }.bind(this));
 		    
@@ -37,7 +39,7 @@
       </a-assets>
       <a-entity event-listener
         gltf-model="#trex"
-        scale=".08 .08 .08"
+        scale=".09 .09 .09"
         position = "0 0 -5"
         rotation="0 0 0"
       >
