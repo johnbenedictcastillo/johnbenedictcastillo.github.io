@@ -17,11 +17,12 @@
                     //this.audio.play();
                   console.log("click")
                 }.bind(this));
-
-		marker.addEventListener('markerLost', function() {
-			this.vid.pause();
-			this.vid.currentTime = 0;
-		}.bind(this));
+		    
+                this.el.addEventListener('mousedown mouseup', function (e) {
+                    //this.audio.play();
+                  console.log(e.type)
+                }.bind(this));
+		    
             }
         });
     };
@@ -40,6 +41,8 @@
         position = "0 0 -5"
         rotation="0 0 0"
       >
+	      <a-text id="trexText" value="This is a trex" align="center" color="#FFF" visible="false" position="0 -0.55 0.55"
+		geometry="primitive: plane; width: 1.75" material="color: #333"></a-text>
       </a-entity>
       <a-entity cursor="rayOrigin:mouse"></a-entity>
     </a-scene>
