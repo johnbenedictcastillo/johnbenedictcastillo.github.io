@@ -9,10 +9,7 @@
         AFRAME.registerComponent('event-listener', {
             init: function () {
                 this.audio = document.querySelector("#roar");
-                this.el.addEventListener('dblclick', function () {
-                  console.log("double click")
-                    this.audio.play();
-                }.bind(this));
+
                 this.el.addEventListener('click', function (e) {
                     this.audio.play();
 			
@@ -20,16 +17,37 @@
                 }.bind(this));
 		
                 this.el.addEventListener('mouseenter', function (e) {
-                    //this.audio.play();
+                    console.log(e)
                 	let trexText = document.querySelector('#trexText')
 			trexText.setAttribute('visible', true);
                 }.bind(this));
 		    
 		 this.el.addEventListener('mouseleave', function (e) {
+			 console.log(e)
                 	let trexText = document.querySelector('#trexText')
 			  trexText.setAttribute('visible', false);
                 }.bind(this));
+		 
+		
+                this.el.addEventListener('touchmove', function (e) {
+                    this.audio.play();
+			
+                  console.log(e)
+                }.bind(this));
+		
+                this.el.addEventListener('touchstart', function (e) {
+                    //this.audio.play();
+			console.log(e)
+                	let trexText = document.querySelector('#trexText')
+			trexText.setAttribute('visible', true);
+                }.bind(this));
 		    
+		 this.el.addEventListener('touchend', function (e) {
+			 console.log(e)
+                	let trexText = document.querySelector('#trexText')
+			  trexText.setAttribute('visible', false);
+                }.bind(this));
+		
             }
         });
     };
