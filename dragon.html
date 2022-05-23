@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>User Interaction Demo</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script>
+    window.onload = function() {
+        AFRAME.registerComponent('event-listener', {
+            init: function () {
+                this.audio = document.querySelector("#roar");
+
+                this.el.addEventListener('click', function (e) {
+                    this.audio.play();
+			
+                  console.log(e)
+                }.bind(this));
+		
+                this.el.addEventListener('mouseenter', function (e) {
+                    console.log(e)
+                }.bind(this));
+		    
+		 this.el.addEventListener('mouseleave', function (e) {
+			 console.log(e)
+                }.bind(this));
+		 
+		
+                this.el.addEventListener('touchmove', function (e) {
+                    //this.audio.play();
+			
+                  console.log(e)
+                }.bind(this));
+		
+                this.el.addEventListener('touchstart', function (e) {
+                    this.audio.play();
+			console.log(e)
+                }.bind(this));
+		    
+		 this.el.addEventListener('touchend', function (e) {
+			 console.log(e)
+                }.bind(this));
+		
+            }
+        });
+    };
+</script>
+  </head>
+
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene>
+       <a-assets>
+        <a-asset-item id="dragon" src="./dragon.glb"></a-asset-item>
+        <audio id="roar" src="./assets/roar.wav"></audio>
+      </a-assets>
+      <a-entity event-listener
+        gltf-model="#dragon"
+        scale=".09 .09 .09"
+        position = "0 0 -5"
+        rotation="0 15 0"
+      >
+      </a-entity>
+      <a-sound src="#roar" autoplay="false"></a-sound>
+      <a-entity cursor="rayOrigin:mouse"></a-entity>
+      <a-entity cursor="fuse: true; fuseTimeout: 500"></a-entity>
+      <a-sky color="#87ceeb"></a-sky>
+    </a-scene>
+  </body>
+</html>
