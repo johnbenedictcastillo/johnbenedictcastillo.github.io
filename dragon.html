@@ -34,13 +34,18 @@
 			
                   console.log(e)
                 }.bind(this));
-		
+		animation-finished
                 this.el.addEventListener('touchstart', function (e) {
 		
                     let dragon = document.querySelector('#dragon-model')
 		    dragon.setAttribute('animation-mixer', "clip: Scene; loop: once;");
                     this.audio.play();
 			console.log(e)
+                }.bind(this));
+		
+                this.el.addEventListener('animation-finished', function (e) {
+                    let dragon = document.querySelector('#dragon-model')
+		    dragon.removeAttribute('animation-mixer');
                 }.bind(this));
 		    
 		 this.el.addEventListener('touchend', function (e) {
