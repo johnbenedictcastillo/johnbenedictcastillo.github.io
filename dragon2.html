@@ -5,7 +5,9 @@
     <title>User Interaction Demo</title>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
-    <script>
+    <script src="https://cdn.jsdelivr.net/npm/howler@2.2.3/dist/howler.min.js"></script>
+	  
+    <script>	    
     window.onload = function() {
         AFRAME.registerComponent('event-listener', {
             init: function () {
@@ -76,5 +78,12 @@
       <a-entity cursor="rayOrigin:mouse"></a-entity>
       <a-entity cursor="fuse: true; fuseTimeout: 500"></a-entity>
     </a-scene>
+    <script>
+		  
+    var sound = new Howl({
+      src: ['./assets/bgm.mp3']
+    });
+    sound.play();
+    </script>
   </body>
 </html>
