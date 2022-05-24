@@ -14,7 +14,7 @@
                 this.el.addEventListener('click', function (e) {
 		
                     let trex = document.querySelector('#trex-model')
-		    trex.setAttribute('animation-mixer', "clip: Bip001|Take 001|BaseLayer; loop: once;");
+		    trex.setAttribute('animation-mixer', "clip: *; loop: once;");
                     this.audio.play();
 			
                   console.log(e)
